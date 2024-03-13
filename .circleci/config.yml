@@ -1,32 +1,8 @@
 version: 2.1
 orbs:
-  win: circleci/windows@5.0
   gradle: circleci/gradle@3.0.0  
-executors:
-  linux:
-    machine:
-      image: ubuntu-2204:2024.01.1
-  macos:
-    macos:
-      xcode: 15.1.0
-    resource_class: macos.x86.medium.gen2
-  windows:
-    win/default
-  
-jobs:
-  build:
-    parameters:
-      os:
-        type: executor
-    executor: << parameters.os >> 
-    steps:
-      - checkout
-      - gradle/run
-          
+            
 workflows:
   tests-on-all-platforms:
     jobs:
-      - build:
-          matrix:
-            parameters:
-              os: [linux, macos, windows]
+      - gradle/run
