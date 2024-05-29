@@ -17,3 +17,6 @@ jobs:
     
     - name: Execute Gradle build
       run: ./gradlew build --build-cache
+
+    - name: Execute Gradle build
+      run: ./gradlew build --build-cache
